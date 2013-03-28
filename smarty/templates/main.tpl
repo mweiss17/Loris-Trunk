@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+
 <link rel="stylesheet" href="{$css}" type="text/css" />
 <link rel="shortcut icon" href="images/mni_icon.ico" type="image/ico" />
 <title>{$study_title}</title>
@@ -14,6 +16,7 @@
 {/if}
 
 {literal}
+
 <script language="javascript" type="text/javascript"> 
 <!--
 function feedback_bvl_popup(features) { 
@@ -29,13 +32,15 @@ function feedback_bvl_popup(features) {
 
 <body 
 {if $PopUpFeedbackBVL && ($user.permissions.superuser==true || $user.permissions.access_all_profiles==true || $user.user_from_study_site==true)}
-    onload="feedback_bvl_popup();"
+    onload="feedback_bvl_popup();" 
 {/if}
 >
+
+{if $dynamictabs neq "dynamictabs"}
 <table border="0" cellpadding="3" cellspacing="2" width="100%" class="mainlayout">
     <tr>
         <th align="left" background="images/title_background.jpg" class="banner" colspan="2">
-            {$study_title}
+            {$study_title} 
         </th>
     </tr>
 
@@ -46,7 +51,9 @@ function feedback_bvl_popup(features) {
         </td>
     </tr>
     <tr>
-        <!-- nav bar table -->
+
+
+    <!-- nav bar table -->
         <td colspan="2" class="navigationRow">
             <ul class="navigationBar">
                 <!-- the buttons -->
@@ -55,6 +62,8 @@ function feedback_bvl_popup(features) {
                         <a href="main.php?test_name={$tab.link}">{$tab.label}</a>
                     </li>
                 {/foreach}
+                
+                
                 
                 <!-- my preferences button-->
                 <li class="navigationButtons {if $test_name== "user_accounts" && $subtest == "my_preferences" }active{/if}">
@@ -67,6 +76,7 @@ function feedback_bvl_popup(features) {
         </td>
     </tr>
 
+
     <tr>
         <!-- left section -->
         <td class="tabox sidenav" valign="top">
@@ -76,6 +86,8 @@ function feedback_bvl_popup(features) {
 		        <li id="backButton"><a href="{$lastURL}"><img src="images/left.gif" alt="" border="0" width="12" height="12" /> Back</a></li>
 	        </ul>
         {/if}
+
+
 
         {if $test_name != "" && $error_message == ""}
             {if $commentID != ""}
@@ -99,11 +111,11 @@ function feedback_bvl_popup(features) {
             </ul>
         </td>
 
-
         <!-- main page table tags -->
         <td width="100%" class="tabox" valign="top">
 
             <!-- Start workspace area -->
+
 
 {if $crumbs != ""}
             <!-- bread crumb -->
@@ -209,15 +221,15 @@ function feedback_bvl_popup(features) {
             </table>
         {/if}
     {/if}
-            <!-- included file -->
+{/if}
+{/if}
+<!-- included file -->
 <table width="90%"><tr><td>
 {$workspace}
 </td></tr></table>
-{/if} 
         </td>
     </tr>
 </table>
-
 </body>
 </html>
 

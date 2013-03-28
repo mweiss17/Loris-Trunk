@@ -26,12 +26,15 @@ $timer->setMarker('Loaded client');
 
 //--------------------------------------------------
 
+//dynamictabs should be set in pages which have dynamic tabs. It disables the main_menu_tabs from being recursively displayed below the dynamic tabs.
+
 // set URL params
 $tpl_data['test_name'] = $_REQUEST['test_name']; 
 $tpl_data['subtest']   = $_REQUEST['subtest'];
 $tpl_data['candID']    = $_REQUEST['candID'];
 $tpl_data['sessionID'] = $_REQUEST['sessionID'];
 $tpl_data['commentID'] = $_REQUEST['commentID'];
+$tpl_data['dynamictabs'] = $_REQUEST['dynamictabs'];
 
 // study title
 $tpl_data['study_title'] = $config->getSetting('title');
